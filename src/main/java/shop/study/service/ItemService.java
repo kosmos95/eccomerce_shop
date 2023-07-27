@@ -34,8 +34,8 @@ public class ItemService { //248p
         for (int i = 0; i < itemImgFileList.size(); i++) {
             ItemImg itemImg = new ItemImg();
             itemImg.setItem(item);
-            if(i==0) {itemImg.setRepImgYn("Y");}
-            else itemImg.setRepImgYn("n");
+            if(i==0) {itemImg.setRepimgYn("Y");}
+            else itemImg.setRepimgYn("n");
 
             itemImgService.saveItemImg(itemImg, itemImgFileList.get(i));
         }

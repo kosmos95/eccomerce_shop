@@ -21,7 +21,7 @@ public class ItemImg extends BaseEntity{
 
     private String imgUrl;
 
-    private String repImgYn; //represent img
+    private String repimgYn; //represent img
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "item_id")
