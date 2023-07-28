@@ -48,23 +48,6 @@ public class OrderService {
         return order.getId();
     }
 
-    @Transactional(readOnly = true)
-    public boolean validateOrder(Long orderId, String email) {
-        Member curMember = memberRepository.findByEmail(email);
-        Order order = orderRepository.findById(orderId).orElseThrow(EntityNotFoundException::new);
-        Member savedMember = order.getMember();
-
-        if (!StringUtils.equals(curMember.getEmail(), savedMember.getEmail())) {
-            return false;
-        }
-
-        return true;
-    }
-
-    public void cancelOrder(Long orderId) {
-        Order order = orderRepository.findById(orderId).orElseThrow(EntityNotFoundException::new);
-        order.cancelOrder();
-    }
 
     @Transactional(readOnly = true)
     public Page<OrderHistDto> getOrderList(String email, Pageable pageable) {
@@ -87,6 +70,28 @@ public class OrderService {
         }
 
         return new PageImpl<OrderHistDto>(orderHistDtos, pageable, totalCount);
+    }
+
+    @Transactional(readOnly = true)
+    public boolean validateOrder(Long orderId, String email) {
+
+        //현재 로그인한 사용자와 주문 데이터를 생성한 사용자가 같은지 검사. 같으면 true를 반환 같지 않으면 false반환
+        Member curMember = memberRepository.findByEmail(email);
+        Order order = orderRepository.findById(orderId).orElseThrow(EntityNotFoundException::new);
+        Member savedMember = order.getMember();
+
+        if (!StringUtils.equals(curMember.getEmail(), savedMember.getEmail())) {
+            return false;
+        }
+
+        return true;
+    }
+
+    public void cancelOrder(Long orderId) {
+        Order order = orderRepository.findById(orderId).orElseThrow(EntityNotFoundException::new);
+
+     //주문이 끝나면 변경감지 기능으로로 의해 트랜잭션이 끝날 때 update 쿼리가 실행됨
+       order.cancelOrder();
     }
 }
 

@@ -8,6 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.transaction.annotation.Transactional;
 import shop.study.constant.ItemSellStatus;
+import shop.study.constant.OrderStatus;
 import shop.study.dto.OrderDto;
 import shop.study.entity.Item;
 import shop.study.entity.Member;
@@ -77,5 +78,55 @@ class OrderServiceTest {
 
         Assertions.assertThat(totalPrice).isEqualTo(order.getTotalPrice());
     }
+
+    @Test
+    @DisplayName("주문취소 테스트")
+    public void cancelOrder() {
+        Item item = saveItem();
+        Member member = saveMember();
+
+
+        OrderDto orderDto = new OrderDto();
+        orderDto.setCount(10);
+        orderDto.setItemId(item.getId());
+        Long orderId = orderService.order(orderDto, member.getEmail());
+
+        Order order = orderRepository.findById(orderId).orElseThrow(EntityExistsException::new);
+        orderService.cancelOrder(orderId);
+
+        assertEquals(OrderStatus.CANCEL, order.getOrderStatus());
+        assertEquals(100, item.getStockNumber());
+
+        Assertions.assertThat(OrderStatus.CANCEL).isEqualTo(order.getOrderStatus());
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
