@@ -3,11 +3,10 @@ package shop.study.entity;
 import lombok.Getter;
 import lombok.Setter;
 import shop.study.constant.ItemSellStatus;
-import shop.study.dto.ItemFormDto;
+import shop.study.dto.itemDto.ItemFormDto;
 import shop.study.exception.OutOfStockException;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 
 @Entity
 @Getter

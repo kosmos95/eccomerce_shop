@@ -10,7 +10,7 @@ import org.springframework.test.context.TestPropertySource;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 import shop.study.constant.ItemSellStatus;
-import shop.study.dto.ItemFormDto;
+import shop.study.dto.itemDto.ItemFormDto;
 import shop.study.entity.Item;
 import shop.study.entity.ItemImg;
 import shop.study.repository.ItemImgRepository;

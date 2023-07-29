@@ -12,13 +12,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
-import shop.study.dto.ItemFormDto;
-import shop.study.dto.ItemSearchDto;
+import shop.study.dto.itemDto.ItemFormDto;
+import shop.study.dto.itemDto.ItemSearchDto;
 import shop.study.entity.Item;
 import shop.study.service.ItemService;
 
 import javax.persistence.EntityNotFoundException;
-import javax.persistence.criteria.CriteriaBuilder;
 import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;

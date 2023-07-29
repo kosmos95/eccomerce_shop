@@ -1,4 +1,4 @@
-package shop.study.dto;
+package shop.study.dto.itemDto;
 
 import lombok.Getter;
 import lombok.Setter;

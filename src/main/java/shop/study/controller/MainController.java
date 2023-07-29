@@ -7,7 +7,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import shop.study.dto.ItemSearchDto;
+import shop.study.dto.itemDto.ItemSearchDto;
 import shop.study.dto.MainItemDto;
 import shop.study.service.ItemService;
 

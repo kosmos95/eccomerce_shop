@@ -1,6 +1,5 @@
 package shop.study.repository;
 
-import com.querydsl.core.Query;
 import com.querydsl.core.QueryResults;
 import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.jpa.impl.JPAQueryFactory;
@@ -9,12 +8,10 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.thymeleaf.util.StringUtils;
 import shop.study.constant.ItemSellStatus;
-import shop.study.dto.ItemSearchDto;
+import shop.study.dto.itemDto.ItemSearchDto;
 import shop.study.dto.MainItemDto;
 import shop.study.dto.QMainItemDto;
 import shop.study.entity.Item;
-import shop.study.entity.QItem;
-import shop.study.entity.QItemImg;
 
 import javax.persistence.EntityManager;
 import java.time.LocalDateTime;
