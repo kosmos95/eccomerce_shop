@@ -1,6 +1,5 @@
 package shop.study.entity;
 
-import groovy.util.logging.Slf4j;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.context.TestPropertySource;
 import shop.study.dto.MemberFormDto;
-import shop.study.repository.CartRepository;
+import shop.study.repository.cartRepository.CartRepository;
 import shop.study.repository.MemberRepository;
 
 import javax.persistence.EntityManager;
@@ -16,11 +15,8 @@ import javax.persistence.EntityNotFoundException;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
-import java.util.Optional;
-
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.log;
 
 
 @SpringBootTest
