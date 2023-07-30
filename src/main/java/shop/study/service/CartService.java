@@ -58,7 +58,7 @@ public class CartService {
     }
 
     @Transactional(readOnly = true)
-    public List<CartDetailDto> getCartDtoList(String email) {
+    public List<CartDetailDto> getCartList(String email) {
         List<CartDetailDto> cartDetailDtoList = new ArrayList<>();
 
         Member member = memberRepository.findByEmail(email);
