@@ -93,6 +93,24 @@ public class OrderService {
      //주문이 끝나면 변경감지 기능으로로 의해 트랜잭션이 끝날 때 update 쿼리가 실행됨
        order.cancelOrder();
     }
+
+    //장바구니에서 주문할 상품 데이터 받아서 주문을 생성
+    public Long orders(List<OrderDto> orderDtoList, String email) {
+        Member member = memberRepository.findByEmail(email);
+        List<OrderItem> orderItemList = new ArrayList<>();
+
+        for (OrderDto orderDto : orderDtoList) {
+            Item item = itemRepository.findById(orderDto.getItemId()).orElseThrow(EntityNotFoundException::new);
+
+            OrderItem orderItem = OrderItem.createOrderItem(item, orderDto.getCount());
+            orderItemList.add(orderItem);
+        }
+
+        Order order = Order.createOrder(member, orderItemList);
+        orderRepository.save(order);
+
+        return order.getId();
+    }
 }
 
 

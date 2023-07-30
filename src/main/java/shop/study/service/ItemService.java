@@ -37,17 +37,14 @@ public class ItemService { //248p
         for (int i = 0; i < itemImgFileList.size(); i++) {
             ItemImg itemImg = new ItemImg();
             itemImg.setItem(item);
-            if(i==0) {itemImg.setRepimgYn("Y");}
-            else itemImg.setRepimgYn("n");
 
-            itemImgService.saveItemImg(itemImg, itemImgFileList.get(i));
         }
         return item.getId();
 
     }
 
     //상품수정
-    @Transactional(readOnly = true) //257p
+    @Transactional(readOnly = true)
     public ItemFormDto getItemDtl(Long itemId) {
         List<ItemImg> itemImgList = itemImgRepository.findByItemIdOrderByIdAsc(itemId);
 
