@@ -3,7 +3,7 @@ package shop.study.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import shop.study.dto.CartItemDto;
+import shop.study.dto.cartDto.CartItemDto;
 import shop.study.entity.Cart;
 import shop.study.entity.CartItem;
 import shop.study.entity.Item;

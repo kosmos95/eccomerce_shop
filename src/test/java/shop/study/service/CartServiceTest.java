@@ -7,15 +7,13 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.transaction.annotation.Transactional;
 import shop.study.constant.ItemSellStatus;
-import shop.study.dto.CartItemDto;
-import shop.study.entity.Cart;
+import shop.study.dto.cartDto.CartItemDto;
 import shop.study.entity.CartItem;
 import shop.study.entity.Item;
 import shop.study.entity.Member;
 import shop.study.repository.ItemRepository;
 import shop.study.repository.MemberRepository;
 import shop.study.repository.cartRepository.CartItemRepository;
-import shop.study.repository.cartRepository.CartRepository;
 
 import javax.persistence.EntityNotFoundException;
 

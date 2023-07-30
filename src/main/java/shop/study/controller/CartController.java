@@ -9,8 +9,7 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
-import shop.study.dto.CartItemDto;
-import shop.study.entity.CartItem;
+import shop.study.dto.cartDto.CartItemDto;
 import shop.study.service.CartService;
 
 import javax.validation.Valid;
